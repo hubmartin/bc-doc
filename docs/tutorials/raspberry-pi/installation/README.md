@@ -244,63 +244,31 @@ This is a brief description of changes:
 
 1. Log in to SSH terminal.
 
-2. Add BigClown APT repository to sources list:
+2. Install dependencies:
+
+   ```
+   sudo apt-get install apt-transport-https wget
+   ```
+
+3. Add BigClown APT repository to sources list:
 
    ```
    sudo sh -c 'echo "deb https://repo.bigclown.com/debian jessie main" >/etc/apt/sources.list.d/bigclown.list'
    ```
 
-3. Start APT PGP key installation process:
+4. Add APT PGP key:
 
    ```
-   sudo apt-key add -
+   wget https://repo.bigclown.com/debian/pubkey.gpg -O - | sudo apt-key add -
    ```
 
-4. Copy the following block to clipboard and paste it to terminal:
-
-   ```
-   -----BEGIN PGP PUBLIC KEY BLOCK-----
-   Version: GnuPG v1
-
-   mQENBFhTX8MBCACl/4PIfFQI6A3q2nN9VD7URLxzitAzVGI3qzRiiKxeiuMqaAnc
-   TVS+FsNac/8sWVXmfh1Umhov5z6I4zg67/In+h6dkmbrCu8Ii6f7qlaIIqp2h3+y
-   Et3CVDy8lYaciq7hnIcmHUJmJ/tx99AX8Mf+WdLHOwM7XkdkfoWN5GCX+MOfoYuh
-   xAdYrRMFNgXyV7ZB8BTZLV2nrd2ZnoQGq59KxhfsCniG+ONL/XIkKTRRaFRP7pZy
-   wAazHyoWA1vC4bu3fGr2uzhw2UuhnlTyYL1K2OaE8aamBBzv44N7osrKmrIqxH/1
-   Fx7Gi7K/24uso/mvRXhoEQKGQm/nwy9FLMQFABEBAAG0P0JpZ0Nsb3duIExhYnMg
-   KEtleSBmb3Igc2lnbmluZyBwYWNrYWdlcykgPHN1cHBvcnRAYmlnY2xvd24uY29t
-   PokBPQQTAQoAJwUCWFNfwwIbAwUJEswDAAULCQgHAwUVCgkICwUWAwIBAAIeAQIX
-   gAAKCRBgUdWrLVBRSyVkB/0fL4VcSsl+15rcHTTu4QH2d6pvnuEZDrDqgzoSeoH0
-   oH5O1HKx0m6fL9S2947W8eIJKdSUL+AH82qtI2HrfCyHg1JZfTb3fB+cFxU31wfb
-   bE1CzP//WW7xWvd5HbbA8PuvMPMDt1NtBiETDEsJAKE2rzV7psD4e1ZER5Kf65sQ
-   vTsJKkhC5gyZKNMm4lBzgJEiO1YMmRhg5qjuZbJ1JsE55ZbxEpZUB4ymU4jXijzr
-   jNU3FOHlCxDue9IdYTpA/dYlSbRgK/2amF3J/FIkCJ6imKfup3kooDkNM9Gq/lfK
-   j90SHmKdGgYdLvGGEo7o8nyAogqMaPpvEEYsa3Vxejx8uQENBFhTX8MBCADkOF8f
-   d261IksPxtNPZBiTRwkjf3+/cdaaT1ERcjc3rWPsnqhGIzZC8el0dh2dTbnd0bLP
-   OHxKciKUvy4WtE5KrQXVaS29E7Y5JteQQf3XNeCELRcQkHBmISXnV2MTGylulxzn
-   tuuYS3EysvcSkx0pxETCiZnF3pmnWRhZTjz2y5cR9Sty40HFvPoSMLMvrYLhM4cO
-   xoz3pO/YE2B3oeou+mzyz7/ojAelNRop/0rRIszwWn1cRfq6ctA6cYnL1+QfMusr
-   hTL5VvlWTuHGEXlJBt8YBqZdevoDRWuJvQOwmDKp9IYsIqdvhTYrjnfz5M557Dpz
-   npYrNtIz9oomC3IDABEBAAGJASUEGAEKAA8FAlhTX8MCGwwFCRLMAwAACgkQYFHV
-   qy1QUUuUqAf9FR/eXnAVBa2r5wiZgsX5R4xztFwyXNst7jiVerN4/XHnXD9u0h7Y
-   F+i+EPaykRM489v8iC7dXDgbUnnsmAuA3DOEzdZzEveAs4m27fhB8lKq/3DjvyRP
-   fm5oLhoS1IlCoXPY4C20FWrX64vwPwmYqTPcMFjhdTdbhV/MueFMKGxtrxtuhm9J
-   tt5wMmjN3F0clpQa+zhCFDMzjAJN1L4PM/wPpyake5BZ/2KotVRHtw8fkOgIKeCu
-   omjViitWs41H3J8mVNZzFV/BTsli4HkIYbnXEQOFvSLZRUPju7dvgxvBEMbJAULw
-   BzgkAJGkucF6sgAXx5QiItVAbyLb668+/Q==
-   =+XAF
-   -----END PGP PUBLIC KEY BLOCK-----
-   ```
-
-5. Now press Enter and then press Ctrl+D. You should see an `OK` response in terminal.
-
-6. Update your existing installation:
+5. Update your existing installation:
 
    ```
    sudo apt-get update && sudo apt-get upgrade
    ```
 
-7. Now you can install the individual packages:
+6. Now you can install the individual packages:
 
    * Basic package for Workroom project (hardware interface):
 
