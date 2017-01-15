@@ -13,6 +13,7 @@ You can monitor your visits and see if you missed someone!
 We will use Node-RED to react on MQTT message, then we send the tweet.
 [This is an example twitter page](https://twitter.com/bcDoorbell)
 
+
 ## What will we need?
 
 
@@ -27,6 +28,8 @@ We will use Node-RED to react on MQTT message, then we send the tweet.
 
 You need to add the code below to your `app/application.c` file.
 Because all the logic is handled in the button callback, there's no need to use or create `application_taks()` function.
+
+You can change the button pin to any GPIO if you connect external button to you Core Module. See the [GPIO API page](http://api.bigclown.com/group__bc__gpio.html).
 
 ``` c
 // LED instance
