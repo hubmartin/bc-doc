@@ -96,7 +96,7 @@ Then we will need Node-RED to connect MQTT message from the button to the Twitte
 
 ## Node RED configuration
 
-If you configured and started your Node RED, open browser on <raspiAddress>:1880 and create the flow you see below:
+If you configured and started your Node RED, open browser on &lt;raspiAddress&gt;:1880 and create the flow you see below:
 
 * MQTT in block
 * JSON block
@@ -105,7 +105,7 @@ If you configured and started your Node RED, open browser on <raspiAddress>:1880
 
 ![](images/flow.png)
 
-You can also import the saved Node RED json below. Then you can skip the next steps explaining how to setup each block.
+You can also import the saved Node RED json below. Then you can skip the next steps explaining how to setup each block, except the Twitter to set the credentials.
 
 ```json
 [{"id":"4f1ddaf2.8d8ff4","type":"tab","label":"Flow 1"},{"id":"3adfde65.667022","type":"mqtt-broker","z":"","broker":"localhost","port":"1883","clientid":"","usetls":false,"compatmode":true,"keepalive":"60","cleansession":true,"willTopic":"","willQos":"0","willPayload":"","birthTopic":"","birthQos":"0","birthPayload":""},{"id":"856fe615.8f1008","type":"twitter-credentials","z":"","screen_name":"@bcDoorbell"},{"id":"b9060d89.926bd","type":"mqtt in","z":"4f1ddaf2.8d8ff4","name":"","topic":"nodes/push-button/-","qos":"0","broker":"3adfde65.667022","x":275,"y":133,"wires":[["aab295ba.d087e8"]]},{"id":"1eb962d4.06a4ad","type":"twitter out","z":"4f1ddaf2.8d8ff4","twitter":"856fe615.8f1008","name":"Tweet","x":739,"y":133,"wires":[]},{"id":"62d4fc7.ea3b104","type":"template","z":"4f1ddaf2.8d8ff4","name":"Message","field":"payload","fieldType":"msg","format":"handlebars","syntax":"mustache","template":"Somebody is at the door! ({{payload.event-count}})","x":597,"y":133,"wires":[["1eb962d4.06a4ad"]]},{"id":"aab295ba.d087e8","type":"json","z":"4f1ddaf2.8d8ff4","name":"","x":451,"y":133,"wires":[["62d4fc7.ea3b104"]]}]
